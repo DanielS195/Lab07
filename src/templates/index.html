@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h1>Productos</h1>
+<div>
+    <table class="table">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Rate</th>
+                <th scope="col">Descripcion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in data %}
+                <tr>
+                    <th scope="row">{{producto[0]}}</th>
+                    <td>
+                        {{producto[1]}} <br>
+                        <img src="{{url_for('static', filename=producto[7])}}" style="width:100px;height:200px;">
+                    </td>
+                    <td>{{producto[2]}}</td>
+                    <td>{{producto[4]}}</td>
+                    <td>
+                        {{producto[5]}} stars <br>
+                        {{producto[6]}} reviews
+                    </td>
+                    <td>{{producto[3]}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+</div>
+{% endblock %}
